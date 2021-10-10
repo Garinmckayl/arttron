@@ -36,10 +36,11 @@ if endpoint == 'Assets':
             st.write(asset['name'])
         else:
             st.write(f"{asset['collection']['name']} #{asset['token_id']}")
-        if asset['image_url'].endswith('mp4'):
-            st.video(asset['image_url'])
-        else:
-            st.image(asset['image_url'])
+        if asset['image_url']:
+            if asset['image_url'].endswith('mp4'):
+                st.video(asset['image_url'])
+            else:
+                st.image(asset['image_url'])
 
 
     # r = requests.get("https://api.opensea.io/api/v1/assets", params=params)
